@@ -1,8 +1,8 @@
 exports.config = {
-  namespace: 'frostedvanilla',
+  namespace: 'frostedglass',
   generateDistribution: true,
   bundles: [
-    { components: ['frosted-vanilla'] }
+    { components: ['frosted-glass'] }
   ]
 };
 

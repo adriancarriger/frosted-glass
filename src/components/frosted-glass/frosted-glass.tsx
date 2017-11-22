@@ -1,10 +1,10 @@
 import { Component, Element, Method, Prop, PropDidChange, PropWillChange } from '@stencil/core';
 
 @Component({
-  tag: 'frosted-vanilla',
-  styleUrl: 'frosted-vanilla.scss'
+  tag: 'frosted-glass',
+  styleUrl: 'frosted-glass.scss'
 })
-export class FrostedVanilla {
+export class FrostedGlass {
   @Prop() backgroundSelector: string;
   @Prop() blurAmount = '5px';
 

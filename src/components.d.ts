@@ -6,29 +6,29 @@
 
 
 import {
-  FrostedVanilla as FrostedVanilla
-} from './components/frosted-vanilla/frosted-vanilla';
+  FrostedGlass as FrostedGlass
+} from './components/frosted-glass/frosted-glass';
 
-interface HTMLFrostedVanillaElement extends FrostedVanilla, HTMLElement {
+interface HTMLFrostedGlassElement extends FrostedGlass, HTMLElement {
 }
-declare var HTMLFrostedVanillaElement: {
-  prototype: HTMLFrostedVanillaElement;
-  new (): HTMLFrostedVanillaElement;
+declare var HTMLFrostedGlassElement: {
+  prototype: HTMLFrostedGlassElement;
+  new (): HTMLFrostedGlassElement;
 };
 declare global {
   interface HTMLElementTagNameMap {
-      "frosted-vanilla": HTMLFrostedVanillaElement;
+      "frosted-glass": HTMLFrostedGlassElement;
   }
   interface ElementTagNameMap {
-      "frosted-vanilla": HTMLFrostedVanillaElement;
+      "frosted-glass": HTMLFrostedGlassElement;
   }
   namespace JSX {
       interface IntrinsicElements {
-          "frosted-vanilla": JSXElements.FrostedVanillaAttributes;
+          "frosted-glass": JSXElements.FrostedGlassAttributes;
       }
   }
   namespace JSXElements {
-      export interface FrostedVanillaAttributes extends HTMLAttributes {
+      export interface FrostedGlassAttributes extends HTMLAttributes {
           mode?: string,
           color?: string,
         

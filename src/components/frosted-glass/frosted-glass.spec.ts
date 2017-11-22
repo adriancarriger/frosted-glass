@@ -1,7 +1,7 @@
 import { render } from '@stencil/core/testing';
-import { FrostedVanilla } from './frosted-vanilla';
+import { FrostedGlass } from './frosted-glass';
 
-describe('frosted-vanilla', () => {
+describe('frosted-glass', () => {
   beforeAll(() => window.requestAnimationFrame = mockRequestAnimationFrame);
 
   let element;
@@ -24,7 +24,7 @@ describe('frosted-vanilla', () => {
   });
 
   it('should build', () => {
-    expect(new FrostedVanilla()).toBeTruthy();
+    expect(new FrostedGlass()).toBeTruthy();
   });
 
   it('should create background elements', async () => {
@@ -133,9 +133,9 @@ function isBound(inputFunction) {
 async function createComponent(position?: string) {
   const style = position ? `style="position:${position}" `: ''
   const fixedElement = await render({
-    components: [FrostedVanilla],
+    components: [FrostedGlass],
     html: `
-      <frosted-vanilla ${style}backgroundSelector="#test-background"></frosted-vanilla>
+      <frosted-glass ${style}backgroundSelector="#test-background"></frosted-glass>
     `
   });
   await timeoutPromise();
