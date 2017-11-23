@@ -8,7 +8,7 @@
   "files": [
     "dist/"
   ],
-  "browser": "dist/frosted-glass.js",
+  "browser": "dist/frostedglass.js",
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
