@@ -1,6 +1,6 @@
 # Frosted Glass [![npm version](https://badge.fury.io/js/frosted-glass.svg)](https://badge.fury.io/js/frosted-glass)
 
-❄️ A frosted glass blur effect for any web content.
+❄️ Add a live frosted glass blur effect over any type of web content, including text.
 ️️
 
 [![Dependency Status](https://img.shields.io/david/adriancarriger/frosted-glass/master.svg?maxAge=60)](https://david-dm.org/adriancarriger/frosted-glass)
@@ -10,7 +10,7 @@
 ## Usage
 
 - Run `npm install frosted-glass --save`
-- Put a script tag similar to this `<script src='node_modules/frosted-glass/dist/frostedglass.js></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='node_modules/frosted-glass/dist/frostedglass.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ## License
