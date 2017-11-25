@@ -6,20 +6,17 @@ describe('frosted-glass', () => {
 
   let element;
   let instance;
-  let background;
   async function updateElementBackground(content) {
-    await updateBackground(background, element, content);
+    await updateBackground(element, content);
   }
 
   beforeEach(async () => {
-    background = createTestBackground('test-background');
     element = await createComponent();
     instance = element._instance;
     await timeoutPromise();
   });
 
   afterEach(() => {
-    removeTestBackground('test-background');
     instance.componentDidUnload();
   });
 
@@ -53,6 +50,7 @@ describe('frosted-glass', () => {
     expect(instance.blurContainer.innerHTML).toContain('Initial content');
     await updateElementBackground('<div>Updated content</div>');
     expect(instance.blurContainer.innerHTML).toContain('Updated content');
+    expect(instance.blurContainer.innerHTML).not.toContain('Nav content');
   });
 
   it('should not update background element when ticking', async () => {
@@ -61,40 +59,32 @@ describe('frosted-glass', () => {
     expect(instance.blurContainer.innerHTML).not.toContain('Updated content');
   });
 
-  it('should remove self copies from the background blur', async () => {
-    await updateElementBackground(`
-      <div data-blur-id="${instance.blurId}">this should be removed</div>
-      <div>Updated content</div>
-    `);
-    expect(instance.blurContainer.innerHTML).not.toContain('this should be removed');
+  it('should update content without glass', async () => {
+    element._instance.__el.innerHTML = `<div>New content</div>`;
+    element._instance.updateBackground();
+    await timeoutPromise();
+    expect(instance.blurContainer.innerHTML).toContain('New content');
   });
 
   it('should not update background when missing a selector', async () => {
     expect(instance.blurContainer.innerHTML).toContain('Initial content');
-    instance.__el._values.backgroundSelector = undefined;
+    instance.__el._values.glassSelector = undefined;
     await updateElementBackground('<div>Updated content</div>');
     expect(instance.blurContainer.innerHTML).not.toContain('Updated content');
   });
 
   it('should unload', async () => {
-    const blurContainer = () => document.getElementById(`blur-container-${instance.blurId}`);
+    instance.blurContainer.setAttribute('id', 'blur-container');
+    const blurContainer = () => document.getElementById('blur-container');
     expect(blurContainer()).toBeDefined();
     instance.componentDidUnload();
     expect(blurContainer()).toBeNull();
-    
   });
 
   it('should bind onScroll if position is fixed', async () => {
     const fixedElement = await createComponent('fixed');
     expect(isBound(element._instance.onScroll)).toBe(false);
     expect(isBound(fixedElement._instance.onScroll)).toBe(true);
-  });
-
-  it('should update the background when given a new selector', async () => {
-    background = createTestBackground('test-background-2', 'Other content');
-    expect(instance.blurContainer.innerHTML).toContain('Initial content');
-    element.backgroundSelector = '#test-background-2';
-    expect(instance.blurContainer.innerHTML).toContain('Other content');
   });
 });
 
@@ -107,21 +97,8 @@ function timeoutPromise(inputFunction = () => {}, time = 0) {
   })
 }
 
-function createTestBackground(id, content?) {
-  const text = content? content : 'Initial content';
-  const background = document.createElement('div');
-  background.setAttribute('id', id);
-  background.innerHTML = `<div id="initial-content">${text}</div>`;
-  document.querySelector('body').appendChild(background);
-  return document.getElementById(id);
-}
-
-function removeTestBackground(id) {
-  document.getElementById(id).remove();
-}
-
-async function updateBackground(background, element, newContent) {
-  background.innerHTML = newContent;
+async function updateBackground(element, newContent) {
+  element._instance.__el.innerHTML = `${newContent}<div id="glass">Nav content</div>`;
   element._instance.updateBackground();
   await timeoutPromise();
 }
@@ -135,7 +112,10 @@ async function createComponent(position?: string) {
   const fixedElement = await render({
     components: [FrostedGlass],
     html: `
-      <frosted-glass ${style}backgroundSelector="#test-background"></frosted-glass>
+    <frosted-glass glassSelector="#glass">
+      <div>Initial content</div>
+      <div ${style}id="glass">Nav content</div>
+    </frosted-glass>
     `
   });
   await timeoutPromise();
