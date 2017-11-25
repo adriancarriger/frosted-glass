@@ -1,6 +1,6 @@
 {
   "name": "frosted-glass",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Frosted Glass",
   "main": "dist/collection/index.js",
   "types": "dist/collection/index.d.ts",
@@ -17,10 +17,9 @@
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache"
   },
-  "dependencies": {
-    "@stencil/core": "next"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@stencil/core": "next",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
@@ -40,7 +39,8 @@
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testRegex": "(/src/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testPathIgnorePatterns": ["/node_modules/", "/demos/"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
