@@ -1,21 +1,16 @@
-import { Component, Element, Method, Prop, PropDidChange, PropWillChange } from '@stencil/core';
+import { Component, Element, Method, Prop, PropWillChange } from '@stencil/core';
 
 @Component({
   tag: 'frosted-glass',
   styleUrl: 'frosted-glass.scss'
 })
 export class FrostedGlass {
-  @Prop() backgroundSelector: string;
+  @Prop() glassSelector: string;
   @Prop() blurAmount = '5px';
 
   @Method()
   updateBackground() {
     this.requestTick('backgroundUpdate');
-  }
-
-  @PropDidChange('backgroundSelector')
-  backgroundChangeHandler() {
-    this.backgroundUpdate()
   }
 
   @PropWillChange('blurAmount')
@@ -29,13 +24,12 @@ export class FrostedGlass {
   private topOffset = 0;
   private blurContainer: HTMLElement;
   private blurContent: HTMLElement;
-  private background: Element;
   private ticking: any = {};
-  private blurId: string;
   private latestKnownScrollY: number;
-
+  private glassElement: HTMLElement;
+  
   componentDidLoad() {
-    this.setBlurId();
+    this.glassElement = this.el.querySelector(this.glassSelector);
     this.createNewElements();
     this.addBaseStyles();
     this.initListeners();
@@ -63,7 +57,6 @@ export class FrostedGlass {
 
   private createNewElements() {
     this.blurContainer = document.createElement('div');
-    this.blurContainer.setAttribute('id', `blur-container-${this.blurId}`);
     this.blurContent = document.createElement('div');
     this.blurContainer.appendChild(this.blurContent);
     document.querySelector('body').appendChild(this.blurContainer);
@@ -94,7 +87,7 @@ export class FrostedGlass {
   }
 
   private initListeners() {
-    if (window.getComputedStyle(this.el).position === 'fixed') {
+    if (this.glassSelector && this.glassElement && window.getComputedStyle(this.glassElement).position === 'fixed') {
       this.onScroll = this.onScroll.bind(this);
       window.addEventListener('scroll', this.onScroll);
     }
@@ -106,8 +99,8 @@ export class FrostedGlass {
 
   // @ts-ignore
   private resizeUpdate() {
-    const elementStyle = window.getComputedStyle(this.el);
-    const appStyle = window.getComputedStyle(this.background);
+    const elementStyle = window.getComputedStyle(this.glassElement);
+    const appStyle = window.getComputedStyle(this.el.firstElementChild);
     this.topOffset = parseInt(elementStyle.top, 10);
 
     ['position', 'height', ...this.directions].forEach((item) => {
@@ -133,18 +126,10 @@ export class FrostedGlass {
 
   // @ts-ignore
   private backgroundUpdate() {
-    if (!this.backgroundSelector) { return; }
-    this.background = document.querySelector(this.backgroundSelector);
-    const backgroundClone = document.importNode(this.background, true);
-    const selfClone = backgroundClone.querySelector(`[data-blur-id="${this.blurId}"]`);
-    if (selfClone) { selfClone.remove(); }
-    this.blurContent.innerHTML = '';
-    this.blurContent.appendChild(backgroundClone);
+    if (!this.glassSelector) { return; }
+    this.blurContent.innerHTML = this.el.innerHTML;
+    const glassClone = this.blurContent.querySelector(this.glassSelector);
+    if (glassClone) { glassClone.remove(); }
     this.ticking.backgroundUpdate = false;
-  }
-
-  private setBlurId() {
-    this.blurId = `${Math.random()}`;
-    this.el.dataset.blurId = this.blurId;
   }
 }

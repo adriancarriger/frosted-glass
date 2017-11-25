@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+  <title>Frosted Glass</title>
   <script src="/build/frostedglass.js"></script>
   <style>
     html, body {
@@ -65,14 +65,14 @@
   </style>
 </head>
 <body>
-  <div id="app">
-    <div class="hello">
-        <h1>Welcome!</h1>
-        <frosted-glass class="sticky-header" background-selector="#app">
-          <div class="nav-content">test content</div>
-        </frosted-glass>
+  <frosted-glass glass-selector="#glass">
+    <div id="app" class="hello">
+      <h1>Welcome!</h1>
+      <div id="glass" class="sticky-header">
+        <div class="nav-content">test content</div>
       </div>
-  </div>
+    </div>
+  </frosted-glass>
 
 </body>
 </html>
