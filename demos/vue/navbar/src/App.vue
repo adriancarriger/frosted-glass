@@ -1,0 +1,77 @@
+<template>
+  <frosted-glass glass-selector="#glass">
+    <div id="app" class="hello">
+      <div id="glass" class="sticky-header">
+        <div class="nav-content">test content</div>
+      </div>
+      <router-view/>
+    </div>
+  </frosted-glass>
+</template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
+
+<style>
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+h1, h2 {
+  font-weight: normal;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #fff;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 0;
+  overflow: auto;
+
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  min-height: 120vh;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.nav-content {
+  background-color: white;
+  width: 100px;
+}
+
+.hello {
+  padding-top: 150px;
+}
+
+</style>
