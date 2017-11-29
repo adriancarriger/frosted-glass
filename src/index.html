@@ -40,10 +40,11 @@
       overflow: auto;
 
       background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-      min-height: 100vh;
+      min-height: 120vh;
+      padding-top: 120px;
     }
 
-    .sticky-header {
+    frosted-glass {
       position: fixed;
       top: 0;
       left: 0;
@@ -57,22 +58,17 @@
       background-color: white;
       width: 100px;
     }
-
-    .hello {
-      min-height: 120vh;
-      padding-top: 120px;
-    }
   </style>
 </head>
 <body>
-  <frosted-glass glass-selector="#glass">
-    <div id="app" class="hello">
+  <frosted-glass-container>
+    <div id="app">
       <h1>Welcome!</h1>
-      <div id="glass" class="sticky-header">
-        <div class="nav-content">test content</div>
-      </div>
+      <frosted-glass>
+        <div class="nav-content">Nav content</div>
+      </frosted-glass>
     </div>
-  </frosted-glass>
+  </frosted-glass-container>
 
 </body>
 </html>

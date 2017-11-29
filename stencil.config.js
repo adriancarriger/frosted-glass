@@ -2,7 +2,7 @@ exports.config = {
   namespace: 'frostedglass',
   generateDistribution: true,
   bundles: [
-    { components: ['frosted-glass'] }
+    { components: ['frosted-glass-container', 'frosted-glass'] }
   ]
 };
 

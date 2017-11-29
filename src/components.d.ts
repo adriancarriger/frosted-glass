@@ -6,6 +6,37 @@
 
 
 import {
+  FrostedGlassContainer as FrostedGlassContainer
+} from './components/frosted-glass-container/frosted-glass-container';
+
+declare global {
+  interface HTMLFrostedGlassContainerElement extends FrostedGlassContainer, HTMLElement {
+  }
+  var HTMLFrostedGlassContainerElement: {
+    prototype: HTMLFrostedGlassContainerElement;
+    new (): HTMLFrostedGlassContainerElement;
+  };
+  interface HTMLElementTagNameMap {
+    "frosted-glass-container": HTMLFrostedGlassContainerElement;
+  }
+  interface ElementTagNameMap {
+    "frosted-glass-container": HTMLFrostedGlassContainerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "frosted-glass-container": JSXElements.FrostedGlassContainerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface FrostedGlassContainerAttributes extends HTMLAttributes {
+      
+        blurAmount?: string
+    }
+  }
+}
+
+
+import {
   FrostedGlass as FrostedGlass
 } from './components/frosted-glass/frosted-glass';
 
@@ -30,8 +61,6 @@ declare global {
   namespace JSXElements {
     export interface FrostedGlassAttributes extends HTMLAttributes {
       
-        glassSelector?: string,
-        blurAmount?: string
     }
   }
 }

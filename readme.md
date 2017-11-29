@@ -13,6 +13,18 @@
 - Put a script tag similar to this `<script src='node_modules/frosted-glass/dist/frostedglass.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
+```html
+<frosted-glass-container>
+  <div id="app">
+    <h1>Welcome!</h1>
+    <frosted-glass>
+      <div class="nav-content">Nav content</div>
+    </frosted-glass>
+  </div>
+</frosted-glass-container>
+```
+
+
 ## License
 
 frosted-glass is licensed under the MIT Open Source license. For more information, see the [LICENSE](LICENSE) file in this repository.
