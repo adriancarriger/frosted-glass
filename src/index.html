@@ -4,16 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Frosted Glass</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="/build/frostedglass.js"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       height: 100%;
     }
 
     body {
       margin: 0;
+      font-family: "Roboto","Helvetica","Arial",sans-serif;
     }
 
+    h1 {
+      font-size: 56px;
+    }
     h1, h2 {
       font-weight: normal;
     }
@@ -34,7 +43,6 @@
     }
 
     button {
-      box-sizing: border-box;
       outline: none;
       cursor: pointer;
     }
@@ -44,7 +52,6 @@
     }
 
     #app {
-      font-family: 'Avenir', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       color: #414952;
@@ -61,6 +68,15 @@
       height: 90px;
       background-color: rgba(255, 255, 255, 0.3);
       z-index: 1;
+    }
+
+    .left-menu {
+      position: absolute;
+      left: 5%;
+      top: 0;
+      bottom: 0;
+      height: 25px;
+      margin: auto;
     }
 
     .nav-content {
@@ -92,14 +108,14 @@
       background-color: rgb(141, 141, 141);
       color: white;
       height: 734px;
-      padding-top: 130px;
+      padding-top: 150px;
       text-align: left;
     }
 
     .hero-value-add {
       border: 2px solid white;
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 800px;
       width: 80%;
       padding: 50px;
     }
@@ -107,12 +123,24 @@
     .hero-value-add h1 {
       margin: 0;
       text-transform: uppercase;
+      padding-bottom: 10px;
+    }
+
+    .hero-value-add h1 ::selection {
+      background: white;
     }
 
     .hero-value-add .hero-focus {
       text-transform: initial;
       color: rgb(0, 153, 255);
       display: block;
+    }
+
+    .hero-details span {
+      background: rgb(0, 153, 255);
+      color: white;
+      border-radius: 1px;
+      padding: 1px 4px;
     }
 
     .hero-cta {
@@ -124,7 +152,6 @@
       padding: 10px 30px;
       height: 50px;
       margin: 20px 0;
-      /* width: 150px; */
     }
 
     .journal-container {
@@ -148,6 +175,7 @@
   <frosted-glass-container blur-amount="10px">
     <div id="app">
       <frosted-glass class="nav-container">
+        <i class="material-icons left-menu"></i>
         <ul class="nav-content">
           <li>Home</li>
           <li>Our Story</li>
@@ -160,8 +188,8 @@
       </frosted-glass>
       <div class="hero-container">
         <div class="hero-value-add">
-          <h1>Travel with us <span class="hero-focus">to the mountains</span></h1>
-          <div class="hero-details">next level street art gastropub flannel keytar sustainable sartorial ennui Brooklyn kitsch artisan typewriter</div>
+          <h1><span class="hero-focus">Frosted Glass</span></h1>
+          <div class="hero-details">next level <span>street art</span> gastropub flannel keytar sartorial <span>sustainable</span> ennui Brooklyn kitsch artisan typewriter</div>
           <button class="hero-cta">Order now</button>
         </div>
       </div>
