@@ -99,8 +99,8 @@ export class FrostedGlassContainer {
 
   // @ts-ignore
   private resizeUpdate() {
-    const elementStyle = window.getComputedStyle(this.glassElement);
-    const appStyle = window.getComputedStyle(this.el.firstElementChild);
+    const elementStyle: CSSStyleDeclaration = window.getComputedStyle(this.glassElement);
+
     this.topOffset = parseInt(elementStyle.top, 10);
 
     ['position', 'height', ...this.directions].forEach((item) => {
@@ -108,7 +108,7 @@ export class FrostedGlassContainer {
     });
 
     this.directions.forEach((item) => { this.blurContent.style[item] = `-${elementStyle[item]}`; });
-    this.blurContent.style.width = appStyle.width;
+    this.blurContent.style.width = window.getComputedStyle(this.el.firstElementChild).width;
     this.scrollUpdate();
     this.ticking.resizeUpdate = false;
   }
