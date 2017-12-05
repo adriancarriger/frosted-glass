@@ -1,5 +1,7 @@
 # Frosted Glass [![npm version](https://badge.fury.io/js/frosted-glass.svg)](https://badge.fury.io/js/frosted-glass)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adriancarriger/frosted-glass.svg)](https://greenkeeper.io/)
+
 ❄️ Add a live frosted glass blur effect over any type of web content, including text.
 ️️
 
