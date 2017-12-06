@@ -1,6 +1,6 @@
 {
   "name": "frosted-glass",
-  "version": "0.0.6",
+  "version": "0.0.0-semantic-release",
   "description": "Frosted Glass",
   "main": "dist/collection/index.js",
   "types": "dist/collection/index.d.ts",
@@ -15,7 +15,8 @@
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "test": "jest --no-cache",
-    "test.watch": "jest --watch --no-cache"
+    "test.watch": "jest --watch --no-cache",
+    "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post"
   },
   "dependencies": {},
   "devDependencies": {
@@ -23,13 +24,15 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
-    "jest": "^21.2.1"
+    "condition-circle": "^1.5.0",
+    "jest": "^21.2.1",
+    "semantic-release": "^8.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adriancarriger/frosted-glass.git"
+    "url": "https://github.com/adriancarriger/frosted-glass.git"
   },
-  "author": "Adrian Carriger",
+  "author": "Adrian Carriger <hello@adriancarriger.com> (http://adriancarriger.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/adriancarriger/frosted-glass/issues"
@@ -40,7 +43,10 @@
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
     },
     "testRegex": "(/src/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "testPathIgnorePatterns": ["/node_modules/", "/demos/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/demos/"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -49,5 +55,8 @@
       "jsx"
     ],
     "collectCoverage": true
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
   }
 }
