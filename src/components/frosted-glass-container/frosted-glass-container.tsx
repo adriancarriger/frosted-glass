@@ -1,4 +1,5 @@
 import { Component, Element, Method, Prop, PropWillChange } from '@stencil/core';
+import { FrostedBackground } from '../../services/frosted-background/frosted-background'
 
 @Component({
   tag: 'frosted-glass-container',
@@ -19,24 +20,22 @@ export class FrostedGlassContainer {
 
   @Element() el: HTMLElement;
 
-  private directions: string[] = ['top', 'left', 'right'];
-  private topOffset = 0;
-  private blurContainer: HTMLElement;
-  private blurContent: HTMLElement;
+  private latestKnownScrollY;
   private ticking: any = {};
-  private latestKnownScrollY: number;
-  private glassElement: HTMLElement;
-  private glassSelector = 'frosted-glass'
+  private glassSelector = 'frosted-glass';
+  private backgrounds: FrostedBackground[] = [];
   
   componentDidLoad() {
-    this.glassElement = this.el.querySelector(this.glassSelector);
-    this.createNewElements();
-    this.addBaseStyles();
+    const glassElement = this.el.querySelector(this.glassSelector);
+    this.backgrounds.push(
+      new FrostedBackground(glassElement, this.blurAmount, this.el, this.glassSelector)
+    );
+    this.requestTick('backgroundUpdate');
     this.initListeners();
   }
 
   componentDidUnload() {
-    this.removeElements();
+    this.backgrounds.forEach((background: FrostedBackground) => background.removeElements());
     this.removeListeners();
   }
 
@@ -55,42 +54,20 @@ export class FrostedGlassContainer {
     );
   }
 
-  private createNewElements() {
-    this.blurContainer = document.createElement('div');
-    this.blurContent = document.createElement('div');
-    this.blurContainer.appendChild(this.blurContent);
-    document.querySelector('body').appendChild(this.blurContainer);
-    this.requestTick('backgroundUpdate');
-  }
-
-  private removeElements() {
-    this.blurContainer.remove();
-  }
-
   private removeListeners() {
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onResize);
   }
 
-  private addBaseStyles() {
-    Object.assign(this.blurContainer.style, {
-      overflow: 'hidden',
-      transform: 'translate3d(0, 0, 0)'
-    });
-
-    this.blurContent.style.position = 'absolute';
-    this.updateFilter(this.blurAmount);
-  }
-
   private updateFilter(blurAmount) {
-    this.blurContent.style.filter = `blur(${blurAmount})`;
+    this.backgrounds.forEach((background: FrostedBackground) => {
+      background.updateFilter(blurAmount);
+    });
   }
 
   private initListeners() {
-    if (this.glassSelector && this.glassElement && window.getComputedStyle(this.glassElement).position === 'fixed') {
-      this.onScroll = this.onScroll.bind(this);
-      window.addEventListener('scroll', this.onScroll);
-    }
+    this.onScroll = this.onScroll.bind(this);
+    window.addEventListener('scroll', this.onScroll);
     this.onResize = this.onResize.bind(this);
     window.addEventListener('resize', this.onResize);
     this.onResize();
@@ -99,23 +76,17 @@ export class FrostedGlassContainer {
 
   // @ts-ignore
   private resizeUpdate() {
-    const elementStyle: CSSStyleDeclaration = window.getComputedStyle(this.glassElement);
-
-    this.topOffset = parseInt(elementStyle.top, 10);
-
-    ['position', 'height', ...this.directions].forEach((item) => {
-      this.blurContainer.style[item] = elementStyle[item];
+    this.backgrounds.forEach((background: FrostedBackground) => {
+      background.resizeUpdate();
     });
-
-    this.directions.forEach((item) => { this.blurContent.style[item] = `-${elementStyle[item]}`; });
-    this.blurContent.style.width = window.getComputedStyle(this.el.firstElementChild).width;
     this.scrollUpdate();
     this.ticking.resizeUpdate = false;
   }
 
   private scrollUpdate() {
-    const scrollOffset = this.latestKnownScrollY + this.topOffset;
-    this.blurContent.style.top = `-${scrollOffset}px`;
+    this.backgrounds.forEach((background: FrostedBackground) => {
+      background.scrollUpdate(this.latestKnownScrollY);
+    });
     this.ticking.scrollUpdate = false;
   }
 
@@ -126,9 +97,9 @@ export class FrostedGlassContainer {
 
   // @ts-ignore
   private backgroundUpdate() {
-    this.blurContent.innerHTML = this.el.innerHTML;
-    const glassClone = this.blurContent.querySelector(this.glassSelector);
-    if (glassClone) { glassClone.remove(); }
+    this.backgrounds.forEach((background: FrostedBackground) => {
+      background.backgroundUpdate();
+    });
     this.ticking.backgroundUpdate = false;
   }
 }
