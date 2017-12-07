@@ -26,59 +26,86 @@ describe('frosted-glass', () => {
   });
 
   it('should create background elements', async () => {
-    expect(instance.blurContainer).toBeDefined();
-    expect(instance.blurContent).toBeDefined();
-    expect(instance.blurContainer.innerHTML).toContain('Initial content');
+    expect(instance.backgrounds.length).toBeGreaterThanOrEqual(1);
+    instance.backgrounds.forEach(background => {
+      expect(background.blurContainer).toBeDefined();
+      expect(background.blurContent).toBeDefined();
+      expect(background.blurContainer.innerHTML).toContain('Initial content');
+    });
   });
 
   it('should create background styles', () => {
-    const containerStyle = instance.blurContainer.style;
-    expect(containerStyle.overflow).toEqual('hidden');
-    expect(containerStyle.transform).toEqual('translate3d(0, 0, 0)');
-
-    const contentStyle = instance.blurContent.style;
-    expect(contentStyle.position).toEqual('absolute');
-    expect(contentStyle.filter).toEqual('blur(5px)');
+    instance.backgrounds.forEach(background => {
+      const containerStyle = background.blurContainer.style;
+      expect(containerStyle.overflow).toEqual('hidden');
+      expect(containerStyle.transform).toEqual('translate3d(0, 0, 0)');
+  
+      const contentStyle = background.blurContent.style;
+      expect(contentStyle.position).toEqual('absolute');
+      expect(contentStyle.filter).toEqual('blur(5px)');
+    });
   });
 
   it('should change the blur amount', async () => {
     element.blurAmount = '10px';
-    const contentStyle = instance.blurContent.style;
-    expect(contentStyle.filter).toEqual('blur(10px)');
+    instance.backgrounds.forEach(background => {
+      const contentStyle = background.blurContent.style;
+      expect(contentStyle.filter).toEqual('blur(10px)');
+    });
   });
 
   it('should update background element', async () => {
-    expect(instance.blurContainer.innerHTML).toContain('Initial content');
+    instance.backgrounds.forEach(background => {
+      expect(background.blurContainer.innerHTML).toContain('Initial content');
+    });
     await updateElementBackground('<div>Updated content</div>');
-    expect(instance.blurContainer.innerHTML).toContain('Updated content');
-    expect(instance.blurContainer.innerHTML).not.toContain('Nav content');
+    instance.backgrounds.forEach(background => {
+      expect(background.blurContainer.innerHTML).toContain('Updated content');
+      expect(background.blurContainer.innerHTML).not.toContain('Nav content');
+    });
   });
 
   it('should not update background element when ticking', async () => {
+    instance.backgrounds.forEach(background => {
+      expect(background.blurContainer.innerHTML).toContain('Initial content');
+    });
     instance.ticking.backgroundUpdate = true;
     await updateElementBackground('<div>Updated content</div>');
-    expect(instance.blurContainer.innerHTML).not.toContain('Updated content');
+    instance.backgrounds.forEach(background => {
+      expect(background.blurContainer.innerHTML).not.toContain('Updated content');
+    });
   });
 
   it('should update content without glass', async () => {
     element._instance.__el.innerHTML = `<div>New content</div>`;
     element._instance.updateBackground();
     await timeoutPromise();
-    expect(instance.blurContainer.innerHTML).toContain('New content');
+    expect(instance.backgrounds[0].blurContainer.innerHTML).toContain('New content');
   });
 
   it('should unload', async () => {
-    instance.blurContainer.setAttribute('id', 'blur-container');
+    instance.backgrounds[0].blurContainer.setAttribute('id', 'blur-container');
     const blurContainer = () => document.getElementById('blur-container');
     expect(blurContainer()).toBeDefined();
     instance.componentDidUnload();
     expect(blurContainer()).toBeNull();
   });
 
-  it('should bind onScroll if position is fixed', async () => {
+  it('should update blur content on scroll if fixed', async () => {
     const fixedElement = await createComponent('fixed');
-    expect(isBound(element._instance.onScroll)).toBe(false);
-    expect(isBound(fixedElement._instance.onScroll)).toBe(true);
+    const blurContent = fixedElement._instance.backgrounds[0].blurContent;
+    expect(blurContent.style.top).toBe('-0px');
+    fixedElement._instance.latestKnownScrollY = 43;
+    fixedElement._instance.scrollUpdate();
+    expect(blurContent.style.top).toBe('-43px');
+  });
+
+  it('should not update if scroll position has not changed', async () => {
+    const fixedElement = await createComponent('fixed');
+    const blurContent = fixedElement._instance.backgrounds[0].blurContent;
+    expect(blurContent.style.top).toBe('-0px');
+    fixedElement._instance.scrollUpdate();
+    expect(blurContent.style.top).toBe('-0px');
   });
 });
 
@@ -93,12 +120,8 @@ function timeoutPromise(inputFunction = () => {}, time = 0) {
 
 async function updateBackground(element, newContent) {
   element._instance.__el.innerHTML = `${newContent}<frosted-glass>Nav content</frosted-glass>`;
-  element._instance.updateBackground();
+  element.updateBackground();
   await timeoutPromise();
-}
-
-function isBound(inputFunction) {
-  return inputFunction.prototype === undefined;
 }
 
 async function createComponent(position?: string) {
