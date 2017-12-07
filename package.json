@@ -58,5 +58,8 @@
   },
   "release": {
     "verifyConditions": "condition-circle"
+  },
+  "publishConfig": {
+    "tag": "next"
   }
 }
