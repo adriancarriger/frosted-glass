@@ -13,11 +13,24 @@
 
 - Try the [plunker demo](https://plnkr.co/edit/g6VfPHX3qldeXpKohARq?p=preview)
 
+## Install
+
+```bash
+npm install frosted-glass --save
+```
+
+## Setup
+
+- Add a script tag in the head of your index.html
+
+```html
+<script src='node_modules/frosted-glass/dist/frostedglass.js'></script>
+```
+
 ## Usage
 
-- Run `npm install frosted-glass --save`
-- Put a script tag similar to this `<script src='node_modules/frosted-glass/dist/frostedglass.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+- Add a `frosted-glass-container` element that holds content that can show through a child `frosted-glass` element
+- Add a child `frosted-glass` element that should have a blur effect applied
 
 ```html
 <frosted-glass-container>
