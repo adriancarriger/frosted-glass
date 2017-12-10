@@ -11,7 +11,7 @@
 
 ## Demo
 
-- Try the [plunker demo](https://plnkr.co/edit/g6VfPHX3qldeXpKohARq?p=preview)
+- Try the [plunker demo](https://plnkr.co/edit/6aj05aBro6pH23ImXfgw?p=preview)
 
 ## Install
 
