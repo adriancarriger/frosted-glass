@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+}
+h1, h2 {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+  padding: 34px;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+a {
+  color: #fff;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgb(0, 153, 255);
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #414952;
+  margin: 0;
+  overflow: auto;
+}
+
+/* Nav */
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+.left-menu {
+  position: absolute;
+  left: 5%;
+  top: 0;
+  bottom: 0;
+  height: 25px;
+  margin: auto;
+}
+
+.nav-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+}
+
+.nav-cta {
+  border: solid 2px rgb(0, 153, 255);
+  border-radius: 3px;
+  padding: 10px 30px;
+  background: transparent;
+  color: rgb(0, 153, 255);;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  height: 44px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+/* Hero */
+.hero-container {
+  background-image: url('http://your-photography.com/files/2016/02/HH0A5456.jpg');
+  background-repeat: no-repeat;
+  background-color: rgb(141, 141, 141);
+  color: white;
+  height: 734px;
+  padding-top: 150px;
+  text-align: left;
+}
+
+.hero-value-add {
+  border: 2px solid white;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 80%;
+  padding: 50px;
+}
+
+.hero-value-add h1 {
+  margin: 0;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+}
+
+.hero-value-add h1 ::selection {
+  background: white;
+}
+
+.hero-value-add .hero-focus {
+  text-transform: initial;
+  color: rgb(0, 153, 255);
+  display: block;
+}
+
+.hero-details span {
+  background: rgb(0, 153, 255);
+  color: white;
+  border-radius: 1px;
+  padding: 1px 4px;
+}
+
+.hero-cta {
+  color: white;
+  border-radius: 3px;
+  border: none;
+  background-color: rgb(0, 153, 255);
+  font-size: 20px;
+  padding: 10px 30px;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.journal-container {
+  height: 450px;
+  background: rgb(212, 212, 212);
+}
+
+.extra-container-1 {
+  height: 450px;
+  background: rgb(182, 182, 182);
+}
+
+.extra-container-2 {
+  height: 450px;
+  background: rgb(212, 212, 212);
+}

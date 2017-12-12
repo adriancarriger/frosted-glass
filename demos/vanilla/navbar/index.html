@@ -4,75 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Frosted Glass</title>
+  <link rel="stylesheet" href="style.css">
   <script src='node_modules/frosted-glass/dist/frostedglass.js'></script>
-  <style>
-    html, body {
-      height: 100%;
-    }
-    body {
-      margin: 0;
-    }
-    h1, h2 {
-      font-weight: normal;
-      color: #fff;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      display: inline-block;
-      margin: 0 10px;
-    }
-
-    a {
-      color: #fff;
-    }
-    #app {
-      font-family: 'Avenir', Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-align: center;
-      color: #2c3e50;
-      margin: 0;
-      overflow: auto;
-
-      background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-      min-height: 100vh;
-    }
-
-    .sticky-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100px;
-      background-color: rgba(255, 255, 255, 0.1);
-      z-index: 1;
-    }
-
-    .nav-content {
-      background-color: white;
-      width: 100px;
-    }
-
-    .hello {
-      min-height: 120vh;
-      padding-top: 120px;
-    }
-  </style>
 </head>
 <body>
-  <frosted-glass glass-selector="#glass">
-    <div id="app" class="hello">
-      <h1>Welcome!</h1>
-      <div id="glass" class="sticky-header">
-        <div class="nav-content">test content</div>
+
+  <frosted-glass-container blur-amount="10px">
+      <div id="app">
+        <frosted-glass class="nav-container">
+          <i class="material-icons left-menu"></i>
+          <ul class="nav-content">
+            <li>Home</li>
+            <li>Our Story</li>
+            <li>Services</li>
+            <li>Work</li>
+            <li>Journal</li>
+            <li>Contact</li>
+            <button class="nav-cta">Call Us</button>
+          </ul>
+        </frosted-glass>
+        <div class="hero-container">
+          <div class="hero-value-add">
+            <h1><span class="hero-focus">Frosted Glass</span></h1>
+            <div class="hero-details">next level <span>street art</span> gastropub flannel keytar sartorial <span>sustainable</span> ennui Brooklyn kitsch artisan typewriter</div>
+            <button class="hero-cta">Order now</button>
+          </div>
+        </div>
+        <div class="journal-container"></div>
+        <div class="extra-container-1"></div>
+        <div class="extra-container-2"></div>
       </div>
-    </div>
-  </frosted-glass>
+    </frosted-glass-container>
 
 </body>
 </html>
