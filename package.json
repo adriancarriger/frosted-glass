@@ -16,7 +16,7 @@
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "semantic-release": "semantic-release pre && npm run build && npm publish && semantic-release post",
+    "semantic-release": "npm run build && semantic-release",
     "plunk.publish": "plunk --dir ./demos/vanilla/navbar --desc \"Add a live frosted glass blur effect over any type of web content, including text.\" --tags \"StencilJS,Blur,Frosted Glass\""
   },
   "dependencies": {},
@@ -25,10 +25,10 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
-    "condition-circle": "^1.5.0",
+    "condition-circle": "2.0.0",
     "jest": "^21.2.1",
     "plunk": "^0.5.1",
-    "semantic-release": "^8.2.0"
+    "semantic-release": "^11.0.0"
   },
   "repository": {
     "type": "git",
