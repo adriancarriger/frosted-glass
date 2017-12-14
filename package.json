@@ -25,7 +25,7 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
-    "condition-circle": "2.0.0",
+    "condition-circle": "2.0.1",
     "jest": "^21.2.1",
     "plunk": "^0.5.1",
     "semantic-release": "^11.0.0"
