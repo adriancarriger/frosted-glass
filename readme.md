@@ -34,15 +34,12 @@ npm install frosted-glass --save
 
 ```html
 <frosted-glass-container>
-  <div id="app">
-    <h1>Welcome!</h1>
-    <frosted-glass>
-      <div class="nav-content">Nav content</div>
-    </frosted-glass>
-  </div>
+  <h1>Welcome!</h1>
+  <frosted-glass>
+    <div class="nav-content">Nav content</div>
+  </frosted-glass>
 </frosted-glass-container>
 ```
-
 
 ## License
 
