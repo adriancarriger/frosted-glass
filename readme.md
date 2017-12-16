@@ -29,7 +29,7 @@ npm install frosted-glass --save
 
 ## Usage
 
-- Add a `frosted-glass-container` element that holds content that can show through a child `frosted-glass` element
+- Add a `frosted-glass-container` element
 - Add a child `frosted-glass` element that should have a blur effect applied
 
 ```html
@@ -43,4 +43,5 @@ npm install frosted-glass --save
 
 ## License
 
-frosted-glass is licensed under the MIT Open Source license. For more information, see the [LICENSE](LICENSE) file in this repository.
+frosted-glass is licensed under the MIT Open Source license.
+For more information, see the [LICENSE](LICENSE) file in this repository.
