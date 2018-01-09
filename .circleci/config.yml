@@ -36,4 +36,6 @@ jobs:
       # run tests!
       - run: yarn test
       - run: bash <(curl -s https://codecov.io/bash)
+      - run: yarn run build
+      - run: yarn run size
       - run: DEBUG=condition npm run semantic-release || true
