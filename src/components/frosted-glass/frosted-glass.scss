@@ -1,1 +1,13 @@
+.blur-container {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
 
+  .blur-content {
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}
