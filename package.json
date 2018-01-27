@@ -30,7 +30,7 @@
     "@commitlint/config-conventional": "^6.0.2",
     "@commitlint/core": "^6.0.2",
     "@semantic-release/error": "^2.1.0",
-    "@semantic-release/git": "^2.0.2",
+    "@semantic-release/git": "^3.0.0",
     "@semantic-release/github": "^3.0.3",
     "@stencil/core": "0.0.8-5",
     "@stencil/dev-server": "latest",
