@@ -35,6 +35,7 @@ jobs:
         
       # run tests!
       - run: yarn test
+      - run: yarn run lint.commits.ci
       - run: bash <(curl -s https://codecov.io/bash)
       - run: yarn run build
       - run: yarn run size
