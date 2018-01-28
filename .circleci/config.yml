@@ -35,8 +35,8 @@ jobs:
         
       # run tests!
       - run: yarn test
-      - run: yarn run lint.commits.ci
+      - run: yarn run semantic-commitlint --ci
       - run: bash <(curl -s https://codecov.io/bash)
       - run: yarn run build
       - run: yarn run size
-      - run: DEBUG=condition npm run semantic-release || true
+      - run: yarn run semantic-release

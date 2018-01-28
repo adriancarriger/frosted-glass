@@ -21,17 +21,10 @@
     "semantic-release": "semantic-release",
     "plunk.publish": "plunk --dir ./demos/vanilla/navbar --desc \"Add a live frosted glass blur effect over any type of web content, including text.\" --tags \"StencilJS,Blur,Frosted Glass\"",
     "size": "size-limit",
-    "lint.commits": "node ./scripts/lint-commits.local.js",
-    "lint.commits.ci": "node ./scripts/lint-commits.ci.js"
+    "semantic-commitlint": "semantic-commitlint"
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^6.0.2",
-    "@commitlint/config-conventional": "^6.0.2",
-    "@commitlint/core": "^6.0.2",
-    "@semantic-release/error": "^2.1.0",
-    "@semantic-release/git": "^2.0.2",
-    "@semantic-release/github": "^3.0.3",
     "@stencil/core": "0.0.8-5",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
@@ -40,7 +33,7 @@
     "jest": "^21.2.1",
     "markdownlint-cli": "^0.5.0",
     "plunk": "^0.5.1",
-    "semantic-release": "^12.2.4",
+    "semantic-commitlint": "^1.0.0",
     "size-limit": "^0.13.2"
   },
   "repository": {
@@ -71,6 +64,11 @@
     ],
     "collectCoverage": true
   },
+  "semanticCommitlint": {
+    "skipCommits": [
+      "a1be371"
+    ]
+  },
   "release": {
     "verifyConditions": [
       "@semantic-release/git",
@@ -79,7 +77,7 @@
     ],
     "getLastRelease": "@semantic-release/git",
     "verifyRelease": [
-      "./scripts/lint-commits.plugin.js"
+      "semantic-commitlint"
     ]
   },
   "publishConfig": {
