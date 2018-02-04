@@ -2,8 +2,8 @@
   "name": "frosted-glass",
   "version": "0.0.0-semantic-release",
   "description": "Add a live frosted glass blur effect over any type of web content, including text.",
-  "main": "dist/collection/index.js",
-  "types": "dist/collection/index.d.ts",
+  "main": "dist/frostedglass.js",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
@@ -23,9 +23,10 @@
     "size": "size-limit",
     "semantic-commitlint": "semantic-commitlint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stencil/core": "0.2.3"
+  },
   "devDependencies": {
-    "@stencil/core": "0.0.8-5",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
