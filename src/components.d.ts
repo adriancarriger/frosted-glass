@@ -59,10 +59,10 @@ declare global {
   }
   namespace JSXElements {
     export interface FrostedGlassAttributes extends HTMLAttributes {
-      
-        blurAmount?: string,
-        isClone?: boolean
+      blurAmount?: string;
+      isClone?: boolean;
     }
   }
 }
 
+declare global { namespace JSX { interface StencilJSX {} } }

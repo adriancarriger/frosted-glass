@@ -77,7 +77,7 @@ async function updateBackground(elements, newContent) {
 }
 
 async function createComponent(isClone?: Boolean) {
-  const clone = isClone ? `isClone="true"`: ''
+  const clone = isClone ? `is-clone="true"`: ''
   const containerElement = await render({
     components: [FrostedGlassContainer, FrostedGlass],
     html: `
