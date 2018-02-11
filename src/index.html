@@ -21,7 +21,7 @@
     }
 
     h1 {
-      font-size: 56px;
+      font-size: 54px;
     }
     h1, h2 {
       font-weight: normal;
@@ -66,8 +66,11 @@
       left: 0;
       right: 0;
       height: 90px;
-      background-color: rgba(255, 255, 255, 0.3);
       z-index: 1;
+    }
+
+    .nav-container > .glass-content {
+      background-color: rgba(255, 255, 255, 0.3);
     }
 
     .left-menu {
@@ -91,7 +94,7 @@
       border-radius: 3px;
       padding: 10px 30px;
       background: transparent;
-      color: rgb(0, 153, 255);;
+      color: rgb(0, 153, 255);
       font-size: 16px;
       position: absolute;
       right: 0;
@@ -106,14 +109,14 @@
       background-image: url('http://your-photography.com/files/2016/02/HH0A5456.jpg');
       background-repeat: no-repeat;
       background-color: rgb(141, 141, 141);
-      color: white;
+      color: black;
       height: 734px;
       padding-top: 150px;
       text-align: left;
     }
 
     .hero-value-add {
-      border: 2px solid white;
+      display: block;
       margin: 0 auto;
       max-width: 800px;
       width: 80%;
@@ -132,7 +135,8 @@
 
     .hero-value-add .hero-focus {
       text-transform: initial;
-      color: rgb(0, 153, 255);
+      color: black;
+      font-weight: 100;
       display: block;
     }
 
@@ -174,7 +178,7 @@
 
   <frosted-glass-container>
     <div id="app">
-      <frosted-glass class="nav-container" blur-amount="10px">
+      <frosted-glass class="nav-container">
         <i class="material-icons left-menu"></i>
         <ul class="nav-content">
           <li>Home</li>
@@ -187,11 +191,11 @@
         </ul>
       </frosted-glass>
       <div class="hero-container">
-        <div class="hero-value-add">
+        <frosted-glass class="hero-value-add">
           <h1><span class="hero-focus">Frosted Glass</span></h1>
-          <div class="hero-details">next level <span>street art</span> gastropub flannel keytar sartorial <span>sustainable</span> ennui Brooklyn kitsch artisan typewriter</div>
+          <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
           <button class="hero-cta">Order now</button>
-        </div>
+        </frosted-glass>
       </div>
       <div class="journal-container"></div>
       <div class="extra-container-1"></div>
