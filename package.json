@@ -2,8 +2,8 @@
   "name": "frosted-glass",
   "version": "0.0.0-semantic-release",
   "description": "Add a live frosted glass blur effect over any type of web content, including text.",
-  "main": "dist/collection/index.js",
-  "types": "dist/collection/index.d.ts",
+  "main": "dist/frostedglass.js",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
@@ -18,20 +18,25 @@
     "test.watch": "npm run lint && jest --watch --no-cache",
     "lint": "npm run lint.markdown",
     "lint.markdown": "markdownlint 'readme.md'",
-    "semantic-release": "npm run build && semantic-release",
-    "plunk.publish": "plunk --dir ./demos/vanilla/navbar --desc \"Add a live frosted glass blur effect over any type of web content, including text.\" --tags \"StencilJS,Blur,Frosted Glass\""
+    "semantic-release": "semantic-release",
+    "plunk.publish": "plunk --dir ./demos/vanilla/navbar --desc \"Add a live frosted glass blur effect over any type of web content, including text.\" --tags \"StencilJS,Blur,Frosted Glass\"",
+    "size": "size-limit",
+    "semantic-commitlint": "semantic-commitlint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stencil/core": "0.2.3"
+  },
   "devDependencies": {
-    "@stencil/core": "0.0.8-5",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
     "condition-circle": "2.0.1",
+    "husky": "^0.15.0-rc.3",
     "jest": "^21.2.1",
     "markdownlint-cli": "^0.6.0",
     "plunk": "^0.5.1",
-    "semantic-release": "^11.0.0"
+    "semantic-commitlint": "^1.3.1",
+    "size-limit": "^0.13.2"
   },
   "repository": {
     "type": "git",
@@ -61,10 +66,34 @@
     ],
     "collectCoverage": true
   },
+  "semanticCommitlint": {
+    "skipCommits": [
+      "a1be371"
+    ]
+  },
   "release": {
-    "verifyConditions": "condition-circle"
+    "verifyConditions": [
+      "@semantic-release/git",
+      "@semantic-release/github",
+      "condition-circle"
+    ],
+    "getLastRelease": "@semantic-release/git",
+    "verifyRelease": [
+
+    ]
   },
   "publishConfig": {
     "tag": "next"
+  },
+  "size-limit": [
+    {
+      "path": "dist/frostedglass.js",
+      "limit": "1 KB"
+    }
+  ],
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "yarn run semantic-commitlint -h"
+    }
   }
 }
