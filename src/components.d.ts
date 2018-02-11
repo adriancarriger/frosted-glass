@@ -60,7 +60,7 @@ declare global {
   namespace JSXElements {
     export interface FrostedGlassAttributes extends HTMLAttributes {
       blurAmount?: string;
-      isClone?: boolean;
+      uuid?: string;
     }
   }
 }
