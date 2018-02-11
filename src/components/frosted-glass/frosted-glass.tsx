@@ -8,24 +8,29 @@ import { tempClosest } from '../../util';
 })
 export class FrostedGlass {
   @Element() el: HTMLElement;
-  @Prop() blurAmount = '5px';
-  @Prop() isClone = false;
+  @Prop() uuid: string;
+  @Prop() blurAmount = '15px';
+  @State() blurOffsetLeft = 0;
+  @State() blurOffsetTop = 0;
   @State() scrollOffset = 0;
+  @State() isFixed = false;
 
   @Method()
   updateBackground() {
     this.requestTick('blurContentUpdate');
   }
 
+  private blurContainer: HTMLElement;
   private blurContent: HTMLElement;
   private container: HTMLElement;
   private ticking: any = {};
-  private topOffset = 0;
 
   componentDidLoad() {
-    if (this.isClone) { this.el.remove(); return; }
+    this.el.setAttribute('uuid', `${Math.random()}`);
     this.container = tempClosest(this.el, 'frosted-glass-container') as HTMLElement;
+    this.blurContainer = this.el.querySelector('.blur-container');
     this.blurContent = this.el.querySelector('.blur-content');
+    this.isFixed = getComputedStyle(this.el).position === 'fixed';
     this.requestTick('blurContentUpdate');
     this.initListeners();
   }
@@ -35,7 +40,13 @@ export class FrostedGlass {
   }
 
   onScroll() {
-    this.scrollOffset = window.scrollY + (this.topOffset || 0);
+    this.scrollOffset = window.scrollY;
+  }
+
+  onResize() {
+    const rect = this.blurContainer.getBoundingClientRect();
+    this.blurOffsetLeft = rect.left;
+    this.blurOffsetTop = this.isFixed ? rect.top : rect.top + window.scrollY;
   }
 
   render() {
@@ -43,22 +54,28 @@ export class FrostedGlass {
       <div class="blur-container">
         <div class="blur-content" style={{
           filter: `blur(${this.blurAmount})`,
+          left: `-${this.blurOffsetLeft}px`,
+          top: `-${this.blurOffsetTop}px`,
           transform: `translateY(-${this.scrollOffset}px)`
         }}></div>
       </div>,
-      <div class="glass-content"><slot /></div>
+      <div class={`glass-content${this.isFixed ? ' fixed': ''}`}><slot /></div>
     ]
   }
 
-  private markAsCloned(html: string) {
-    return ['frosted-glass', 'frosted-glass-container'].reduce((p, c) => {
-      return p
-        .split(`<${c}`)
-        .join(`<${c} is-clone="true"`);
-    }, html);
+  private cloneUsingDivs(original: HTMLElement): any {
+    const clone = document.createElement('div');
+    clone.innerHTML = ['frosted-glass', 'frosted-glass-container']
+      .reduce((p, c) => p.split(c).join('div'), original.innerHTML);
+
+    return clone;
   }
 
   private initListeners() {
+    this.onResize = this.onResize.bind(this);
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+    if (!this.isFixed) { return; }
     this.onScroll = this.onScroll.bind(this);
     window.addEventListener('scroll', this.onScroll);
     this.onScroll();
@@ -70,8 +87,18 @@ export class FrostedGlass {
 
   // @ts-ignore
   private blurContentUpdate() {
-    this.blurContent.innerHTML = this.markAsCloned(this.container.innerHTML);
+    const clone = this.cloneUsingDivs(this.container);
+    this.removeSelected(clone, [`[uuid='${this.uuid}']`, '.blur-container']);
+    this.blurContent.innerHTML = '';
+    this.blurContent.innerHTML = clone.innerHTML;
     this.ticking.blurContentUpdate = false;
+  }
+
+  private removeSelected(element, selectors: string[]) {
+    selectors.forEach(selector => {
+      const selectedElements = element.querySelectorAll(selector) as any;
+      selectedElements.forEach(selectedElement => selectedElement.remove());
+    });
   }
 
   private requestTick(functionName: string) {
