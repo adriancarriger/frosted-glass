@@ -32,11 +32,7 @@ describe('frosted-glass', () => {
 
   it('should render', () => {
     expect(element).toBeTruthy();
-  });
-
-  it('should not render a clone', async () => {
-    elements = await createComponent(true);
-    expect(elements.frostedGlass).toBeFalsy();
+    expect(glassIsFixed(element)).toEqual(false);
   });
 
   it('should change the blur amount', async () => {
@@ -58,6 +54,11 @@ describe('frosted-glass', () => {
     await updateElementBackground('<div>Updated content</div>');
     expect(blurContent.innerHTML).not.toContain('Updated content');
   });
+
+  it('should set the fixed class', async () => {
+    const fixedElements = await createComponent(true);
+    expect(glassIsFixed(fixedElements.frostedGlass)).toEqual(true);
+  });
 });
 
 function timeoutPromise(inputFunction = () => {}, time = 0) {
@@ -76,14 +77,14 @@ async function updateBackground(elements, newContent) {
   await timeoutPromise();
 }
 
-async function createComponent(isClone?: Boolean) {
-  const clone = isClone ? `is-clone="true"`: ''
+async function createComponent(isFixed = false) {
+  const style = isFixed ? ' style="position:fixed"': ''
   const containerElement = await render({
     components: [FrostedGlassContainer, FrostedGlass],
     html: `
     <frosted-glass-container>
       <div>Initial content</div>
-      <frosted-glass ${clone}>Nav content</frosted-glass>
+      <frosted-glass${style}>Nav content</frosted-glass>
     </frosted-glass-container>
     `
   });
@@ -97,4 +98,8 @@ async function createComponent(isClone?: Boolean) {
 function mockRequestAnimationFrame(inputFunction: Function) {
   setTimeout(inputFunction);
   return 1;
+}
+
+function glassIsFixed(glass) {
+  return glass.querySelector('.glass-content').classList.contains('fixed');
 }
