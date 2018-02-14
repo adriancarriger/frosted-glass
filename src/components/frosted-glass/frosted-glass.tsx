@@ -9,6 +9,7 @@ import { tempClosest } from '../../util';
 export class FrostedGlass {
   @Element() el: HTMLElement;
   @Prop() uuid: string;
+  @Prop() overlayColor: string;
   @Prop() blurAmount = '15px';
   @State() blurOffsetLeft = 0;
   @State() blurOffsetTop = 0;
@@ -58,6 +59,7 @@ export class FrostedGlass {
           top: `-${this.blurOffsetTop}px`,
           transform: `translateY(-${this.scrollOffset}px)`
         }}></div>
+        <div style={{'background-color': this.overlayColor}} class="overlay"></div>
       </div>,
       <div class={`glass-content${this.isFixed ? ' fixed': ''}`}><slot /></div>
     ]

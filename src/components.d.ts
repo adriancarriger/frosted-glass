@@ -60,6 +60,7 @@ declare global {
   namespace JSXElements {
     export interface FrostedGlassAttributes extends HTMLAttributes {
       blurAmount?: string;
+      overlayColor?: string;
       uuid?: string;
     }
   }

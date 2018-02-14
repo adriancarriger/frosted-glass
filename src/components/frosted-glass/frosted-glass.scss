@@ -16,6 +16,16 @@ frosted-glass {
     position: absolute;
     width: 100vw;
   }
+
+  .overlay {
+    background-color: transparent;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 .glass-content {
