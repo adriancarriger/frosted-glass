@@ -29,7 +29,7 @@ declare global {
   }
   namespace JSXElements {
     export interface FrostedGlassContainerAttributes extends HTMLAttributes {
-      
+      stretch?: boolean;
     }
   }
 }

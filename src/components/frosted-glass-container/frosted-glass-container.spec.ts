@@ -7,7 +7,7 @@ describe('frosted-glass', () => {
   beforeEach(async () => {
     element = await render({
       components: [FrostedGlassContainer],
-      html: `<frosted-glass-container></frosted-glass-container>`
+      html: `<frosted-glass-container stretch="true"></frosted-glass-container>`
     });
   });
 
