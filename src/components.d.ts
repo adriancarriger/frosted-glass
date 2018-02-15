@@ -5,12 +5,21 @@
  */
 
 
+declare global {
+  interface HTMLStencilElement extends HTMLElement {
+    componentOnReady(): Promise<this>;
+    componentOnReady(done: (ele?: this) => void): void;
+  }
+}
+
+
+
 import {
   FrostedGlassContainer as FrostedGlassContainer
 } from './components/frosted-glass-container/frosted-glass-container';
 
 declare global {
-  interface HTMLFrostedGlassContainerElement extends FrostedGlassContainer, HTMLElement {
+  interface HTMLFrostedGlassContainerElement extends FrostedGlassContainer, HTMLStencilElement {
   }
   var HTMLFrostedGlassContainerElement: {
     prototype: HTMLFrostedGlassContainerElement;
@@ -40,7 +49,7 @@ import {
 } from './components/frosted-glass/frosted-glass';
 
 declare global {
-  interface HTMLFrostedGlassElement extends FrostedGlass, HTMLElement {
+  interface HTMLFrostedGlassElement extends FrostedGlass, HTMLStencilElement {
   }
   var HTMLFrostedGlassElement: {
     prototype: HTMLFrostedGlassElement;
