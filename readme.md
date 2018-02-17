@@ -41,6 +41,17 @@ npm install frosted-glass --save
 </frosted-glass-container>
 ```
 
+### `frosted-glass` optional properties
+
+- `blur-amount` - specifies the blur amount applied
+- `overlay-color` - allows an overlay to be placed on top of the blur
+
+#### Example
+
+```html
+<frosted-glass blur-amount="5px" overlay-color="ffffff52"></frosted-glass>
+```
+
 ## License
 
 frosted-glass is licensed under the MIT Open Source license.
