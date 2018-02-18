@@ -11,7 +11,6 @@
 
 ## Demo
 
-- [Demo](https://run.plnkr.co/k358OBcUoluVc1ze/)
 - [Plunker](https://plnkr.co/edit/CgAaJS?p=preview)
 
 ## Install
