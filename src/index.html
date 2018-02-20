@@ -27,6 +27,12 @@
       font-weight: normal;
     }
 
+    @media all and (max-width: 810px) {
+      h1 {
+        font-size: 42px;
+      }
+    }
+
     ul {
       list-style-type: none;
       padding: 34px;
@@ -80,13 +86,21 @@
       bottom: 0;
       height: 25px;
       margin: auto;
+      cursor: pointer;
     }
 
     .nav-content {
-      max-width: 1000px;
       margin: 0 auto;
-      width: 80%;
+      max-width: 1000px;
+      min-height: 86px;
       position: relative;
+      width: 80%;
+    }
+
+    @media all and (max-width: 810px) {
+      .nav-content li {
+        display: none;
+      }
     }
 
     .nav-cta {
@@ -179,7 +193,7 @@
 
   <frosted-glass-container stretch="true">
     <div id="app">
-      <frosted-glass class="nav-container">
+      <frosted-glass overlay-color="#ffffff52" class="nav-container">
         <i class="material-icons left-menu"></i>
         <ul class="nav-content">
           <li>Home</li>
@@ -192,7 +206,7 @@
         </ul>
       </frosted-glass>
       <div class="hero-container">
-        <frosted-glass overlay-color="#ffffff52" class="hero-value-add">
+        <frosted-glass overlay-color="#ffffff52" blur-amount="25px" class="hero-value-add">
           <h1><span class="hero-focus">Frosted Glass</span></h1>
           <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
           <button class="hero-cta">Order now</button>
