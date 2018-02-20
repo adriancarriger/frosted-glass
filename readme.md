@@ -13,6 +13,8 @@
 
 - [Plunker](https://plnkr.co/edit/CgAaJS?p=preview)
 
+[![Navbar blur example gif](https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/navbar-blur.gif)](https://plnkr.co/edit/CgAaJS?p=preview)
+
 ## Install
 
 ```bash
