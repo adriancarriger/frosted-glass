@@ -8,7 +8,6 @@ describe('frosted-glass', () => {
   let elements
   let element;
   let container;
-  let instance;
   let blurContent;
   async function updateElementBackground(content) {
     await updateBackground(elements, content);
@@ -18,12 +17,7 @@ describe('frosted-glass', () => {
     elements = await createComponent();
     element = elements.frostedGlass;
     container = elements.container;
-    instance = element._instance;
-    blurContent = instance.__el.querySelector('.blur-content');
-  });
-
-  afterEach(() => {
-    instance.componentDidUnload();
+    blurContent = element.querySelector('.blur-content');
   });
 
   it('should build', () => {
@@ -43,16 +37,16 @@ describe('frosted-glass', () => {
   });
 
   it('should update background element', async () => {
-    expect(container._instance.__el.innerHTML).toContain('Initial content');
+    expect(container.innerHTML).toContain('Initial content');
     await updateElementBackground('<div>Updated content</div>');
-    expect(container._instance.__el.innerHTML).toContain('Updated content');
+    expect(container.innerHTML).toContain('Updated content');
   });
 
   it('should not update background element when ticking', async () => {
     expect(blurContent.innerHTML).toContain('Initial content');
-    instance.ticking.blurContentUpdate = true;
-    await updateElementBackground('<div>Updated content</div>');
-    expect(blurContent.innerHTML).not.toContain('Updated content');
+    updateElementBackground('<div>Updated content-1</div>')
+    await updateElementBackground('<div>Updated content-2</div>');
+    expect(blurContent.innerHTML).not.toContain('Updated content-2');
   });
 
   it('should set the fixed class', async () => {
@@ -72,9 +66,8 @@ function timeoutPromise(inputFunction = () => {}, time = 0) {
 
 async function updateBackground(elements, newContent) {
   const newHtml = `${newContent}<frosted-glass>Nav content</frosted-glass>`;
-  elements.container._instance.__el.innerHTML = newHtml;
+  elements.container.innerHTML = newHtml;
   elements.frostedGlass.updateBackground();
-  await timeoutPromise();
 }
 
 async function createComponent(isFixed = false) {

@@ -24,10 +24,11 @@
     "semantic-commitlint": "semantic-commitlint"
   },
   "dependencies": {
-    "@stencil/core": "0.5.2"
+    "@stencil/core": "0.6.6"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
+    "@stencil/sass": "^0.0.2",
     "@stencil/utils": "latest",
     "@types/jest": "^22.2.0",
     "condition-circle": "2.0.1",
