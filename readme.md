@@ -11,7 +11,9 @@
 
 ## Demo
 
-- Try the [plunker demo](https://plnkr.co/edit/CgAaJS?p=preview)
+- [Plunker](https://plnkr.co/edit/CgAaJS?p=preview)
+
+[![Navbar blur example gif](https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/navbar-blur.gif)](https://plnkr.co/edit/CgAaJS?p=preview)
 
 ## Install
 
@@ -41,15 +43,23 @@ npm install frosted-glass --save
 </frosted-glass-container>
 ```
 
-### `frosted-glass` optional properties
+## Optional properties
+
+### `frosted-glass`
 
 - `blur-amount` - specifies the blur amount applied
-- `overlay-color` - allows an overlay to be placed on top of the blur
+- `overlay-color` - adds an overlay on top of the blur
+
+### `frosted-glass-container`
+
+- `stretch` - ensures that edges get blurred by [stretching the container dimentions by 5%](https://github.com/adriancarriger/frosted-glass/blob/master/src/components/frosted-glass-container/frosted-glass-container.scss#L5-L7);
 
 #### Example
 
 ```html
-<frosted-glass blur-amount="5px" overlay-color="ffffff52"></frosted-glass>
+<frosted-glass-container stretch="true">
+  <frosted-glass blur-amount="5px" overlay-color="ffffff52"></frosted-glass>
+</frosted-glass-container>
 ```
 
 ## License
