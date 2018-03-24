@@ -1,4 +1,12 @@
-# Navbar
+# navbar
+
+> An Angular project
+
+## Try it
+
+[Live CodeSandbox demo](https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/angular/navbar)
+
+## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 

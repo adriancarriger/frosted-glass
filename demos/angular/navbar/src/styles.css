@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+@media all and (max-width: 810px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 34px;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+a {
+  color: #fff;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgb(0, 153, 255);
+}
