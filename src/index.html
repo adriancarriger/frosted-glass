@@ -23,13 +23,19 @@
     h1 {
       font-size: 54px;
     }
+    h2 {
+      font-size: 36px;
+    }
     h1, h2 {
-      font-weight: normal;
+      font-weight: 100;
     }
 
     @media all and (max-width: 810px) {
       h1 {
         font-size: 42px;
+      }
+      h2 {
+        font-size: 24px;
       }
     }
 
@@ -151,7 +157,6 @@
     .hero-value-add .hero-focus {
       text-transform: initial;
       color: black;
-      font-weight: 100;
       display: block;
     }
 
@@ -173,19 +178,81 @@
       margin: 20px 0;
     }
 
-    .journal-container {
-      height: 450px;
-      background: rgb(212, 212, 212);
+    /* Extras */
+    .extra-container {
+      background: rgb(255, 255, 255);
+      color: rgb(0, 153, 255);
+      height: 350px;
+    }
+
+    .extra-content {
+      padding: 40px 15%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .extra-container h2 {
+      text-align: center;
+    }
+
+    .extra-container p {
+      padding: 0 0 30px 0;
+    }
+
+    .extra-container button {
+      text-align: center;
+      margin: 0 auto;
+      display: block;
+      position: static;
+    }
+
+    .icons-list {
+      display: flex;
+      justify-content: space-between;
+      padding: 2% 10%
+    }
+
+    .icons-list li {
+      overflow: hidden;
+      width: 46px;
+    }
+
+    .icons-list i {
+      margin-left: -140px;
+      font-size: 46px;
     }
 
     .extra-container-1 {
       height: 450px;
-      background: rgb(182, 182, 182);
+      padding-bottom: 40%;
+      background: rgb(212, 212, 212);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: url('https://thumbs-prod.si-cdn.com/wWEuhLHo8_IGh2Tzs1GJNTBIOXo=/fit-in/1072x0/filters:focal(942x492:943x493)/https://public-media.smithsonianmag.com/filer/45/61/4561063e-a2e2-4c24-a721-7a14bf18de0a/120529_burkard_136257.jpg');
     }
 
     .extra-container-2 {
+      height: 400px;
+      padding-top: 10px;
+      background: rgb(255, 255, 255);
+      color: rgb(0, 153, 255);
+    }
+
+    .footer {
       height: 450px;
-      background: rgb(212, 212, 212);
+      background: rgb(82, 82, 82);
+    }
+
+    .footer ul {
+      color: white;
+      padding: 100px 0;
+    }
+
+    .footer li {
+      text-align: center;
+      display: block;
+      padding: 10px;
+      margin: 10px;
     }
   </style>
 </head>
@@ -212,9 +279,32 @@
           <button class="hero-cta">Order now</button>
         </frosted-glass>
       </div>
-      <div class="journal-container"></div>
+      <div class="extra-container">
+        <div class="extra-content">
+          <h2>Artisan craft beer</h2>
+          <p>Odd Future raw denim tattooed Godard Truffaut organic tote bag Carles messenger bag flexitarian twee PBR&B blog</p>
+          <button class="nav-cta">schedule a demo</button>
+        </div>
+      </div>
       <div class="extra-container-1"></div>
-      <div class="extra-container-2"></div>
+      <div class="extra-container extra-container-2">
+        <div class="extra-content">
+            <h2>Kale flannel blog</h2>
+            <p> pack readymade Tonx fixie lomo plaid meggings brunch next level authentic organic paleo</p>
+            <ul class="icons-list">
+              <li><i class="material-icons">ic_flight_takeoff</i></li>
+              <li><i class="material-icons">ic_language</i></li>
+              <li><i class="material-icons">ic_card_travel</i></li>
+            </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <ul>
+          <li>artisan</li>
+          <li>travel</li>
+          <li>curated</li>
+        </ul>
+      </div>
     </div>
   </frosted-glass-container>
 
