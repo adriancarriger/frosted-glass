@@ -5,7 +5,8 @@ import App from './App'
 import router from './router'
 
 Vue.config.ignoredElements = [
-  'frosted-glass'
+  'frosted-glass',
+  'frosted-glass-container'
 ]
 
 Vue.config.productionTip = false
