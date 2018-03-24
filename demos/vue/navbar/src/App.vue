@@ -1,12 +1,30 @@
 <template>
-  <frosted-glass glass-selector="#glass">
-    <div id="app" class="hello">
-      <div id="glass" class="sticky-header">
-        <div class="nav-content">test content</div>
+  <frosted-glass-container stretch="true">
+    <div id="app">
+      <frosted-glass class="nav-container">
+        <i class="material-icons left-menu"></i>
+        <ul class="nav-content">
+          <li>Home</li>
+          <li>Our Story</li>
+          <li>Services</li>
+          <li>Work</li>
+          <li>Journal</li>
+          <li>Contact</li>
+          <button class="nav-cta">Call Us</button>
+        </ul>
+      </frosted-glass>
+      <div class="hero-container">
+        <frosted-glass overlay-color="#ffffff52" class="hero-value-add">
+          <h1><span class="hero-focus">Frosted Glass</span></h1>
+          <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
+          <button class="hero-cta">Order now</button>
+        </frosted-glass>
       </div>
-      <router-view/>
+      <div class="journal-container"></div>
+      <div class="extra-container-1"></div>
+      <div class="extra-container-2"></div>
     </div>
-  </frosted-glass>
+  </frosted-glass-container>
 </template>
 
 <script>
@@ -16,62 +34,173 @@ export default {
 </script>
 
 <style>
-html, body {
-  height: 100%;
-}
-body {
-  margin: 0;
-}
+  * {
+    box-sizing: border-box;
+  }
 
-h1, h2 {
-  font-weight: normal;
-  color: #fff;
-}
+  html,
+  body {
+    height: 100%;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  body {
+    margin: 0;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  h1 {
+    font-size: 54px;
+  }
+  h1,
+  h2 {
+    font-weight: normal;
+  }
 
-a {
-  color: #fff;
-}
+  ul {
+    list-style-type: none;
+    padding: 34px;
+  }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0;
-  overflow: auto;
+  li {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+  }
 
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-  min-height: 120vh;
-}
+  a {
+    color: #fff;
+  }
 
-.sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.1);
-  z-index: 1;
-}
+  button {
+    outline: none;
+    cursor: pointer;
+  }
 
-.nav-content {
-  background-color: white;
-  width: 100px;
-}
+  ::selection {
+    background: rgb(0, 153, 255);
+  }
 
-.hello {
-  padding-top: 150px;
-}
+  #app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #414952;
+    margin: 0;
+    overflow: auto;
+  }
 
+  /* Nav */
+  .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    z-index: 1;
+  }
+
+  .nav-container > .glass-content {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .left-menu {
+    position: absolute;
+    left: 5%;
+    top: 0;
+    bottom: 0;
+    height: 25px;
+    margin: auto;
+  }
+
+  .nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+  }
+
+  .nav-cta {
+    border: solid 2px rgb(0, 153, 255);
+    border-radius: 3px;
+    padding: 10px 30px;
+    background: transparent;
+    color: rgb(0, 153, 255);
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+  }
+
+  /* Hero */
+  .hero-container {
+    background-color: rgb(141, 141, 141);
+    background-image: url("http://your-photography.com/files/2016/02/HH0A5456.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: black;
+    height: 734px;
+    padding-top: 20%;
+    text-align: left;
+  }
+
+  .hero-value-add {
+    display: block;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 80%;
+    padding: 50px;
+  }
+
+  .hero-value-add h1 {
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
+
+  .hero-value-add h1 ::selection {
+    background: white;
+  }
+
+  .hero-value-add .hero-focus {
+    text-transform: initial;
+    color: black;
+    font-weight: 100;
+    display: block;
+  }
+
+  .hero-details span {
+    background: rgb(0, 153, 255);
+    color: white;
+    border-radius: 1px;
+    padding: 1px 4px;
+  }
+
+  .hero-cta {
+    color: white;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(0, 153, 255);
+    font-size: 20px;
+    padding: 10px 30px;
+    height: 50px;
+    margin: 20px 0;
+  }
+
+  .journal-container {
+    height: 450px;
+    background: rgb(212, 212, 212);
+  }
+
+  .extra-container-1 {
+    height: 450px;
+    background: rgb(182, 182, 182);
+  }
+
+  .extra-container-2 {
+    height: 450px;
+    background: rgb(212, 212, 212);
+  }
 </style>

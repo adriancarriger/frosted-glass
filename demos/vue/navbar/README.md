@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+## Try it
+
+[Live CodeSandbox demo](https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/vue/navbar)
+
 ## Build Setup
 
 ``` bash
