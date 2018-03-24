@@ -2,20 +2,28 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 54px;
 }
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
+}
+
+@media all and (max-width: 810px) {
+  h1 {
+    font-size: 42px;
+  }
 }
 
 ul {
@@ -57,8 +65,11 @@ button {
   left: 0;
   right: 0;
   height: 90px;
-  background-color: rgba(255, 255, 255, 0.3);
   z-index: 1;
+}
+
+.nav-container > .glass-content {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .left-menu {
@@ -68,13 +79,21 @@ button {
   bottom: 0;
   height: 25px;
   margin: auto;
+  cursor: pointer;
 }
 
 .nav-content {
-  max-width: 1000px;
   margin: 0 auto;
-  width: 80%;
+  max-width: 1000px;
+  min-height: 86px;
   position: relative;
+  width: 80%;
+}
+
+@media all and (max-width: 810px) {
+  .nav-content li {
+    display: none;
+  }
 }
 
 .nav-cta {
@@ -82,7 +101,7 @@ button {
   border-radius: 3px;
   padding: 10px 30px;
   background: transparent;
-  color: rgb(0, 153, 255);;
+  color: rgb(0, 153, 255);
   font-size: 16px;
   position: absolute;
   right: 0;
@@ -94,17 +113,18 @@ button {
 
 /* Hero */
 .hero-container {
-  background-image: url('http://your-photography.com/files/2016/02/HH0A5456.jpg');
-  background-repeat: no-repeat;
   background-color: rgb(141, 141, 141);
-  color: white;
+  background-image: url("http://your-photography.com/files/2016/02/HH0A5456.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: black;
   height: 734px;
-  padding-top: 150px;
+  padding-top: 20%;
   text-align: left;
 }
 
 .hero-value-add {
-  border: 2px solid white;
+  display: block;
   margin: 0 auto;
   max-width: 800px;
   width: 80%;
@@ -123,7 +143,8 @@ button {
 
 .hero-value-add .hero-focus {
   text-transform: initial;
-  color: rgb(0, 153, 255);
+  color: black;
+  font-weight: 100;
   display: block;
 }
 
