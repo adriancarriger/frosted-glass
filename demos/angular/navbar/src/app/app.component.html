@@ -1,8 +1,26 @@
-<frosted-glass glass-selector="#glass">
-  <div id="app" class="hello">
-    <h1>Welcome!</h1>
-    <div id="glass" class="sticky-header">
-      <div class="nav-content">test content</div>
-    </div>
-  </div>
-</frosted-glass>
+<frosted-glass-container stretch="true">
+	<div id="app">
+		<frosted-glass overlay-color="#ffffff52" class="nav-container">
+			<i class="material-icons left-menu"></i>
+			<ul class="nav-content">
+				<li>Home</li>
+				<li>Our Story</li>
+				<li>Services</li>
+				<li>Work</li>
+				<li>Journal</li>
+				<li>Contact</li>
+				<button class="nav-cta">Call Us</button>
+			</ul>
+		</frosted-glass>
+		<div class="hero-container">
+			<frosted-glass overlay-color="#ffffff52" blur-amount="25px" class="hero-value-add">
+				<h1><span class="hero-focus">Frosted Glass</span></h1>
+				<div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
+				<button class="hero-cta">Order now</button>
+			</frosted-glass>
+		</div>
+		<div class="journal-container"></div>
+		<div class="extra-container-1"></div>
+		<div class="extra-container-2"></div>
+	</div>
+</frosted-glass-container>
