@@ -1,18 +1,18 @@
 {
   "name": "frosted-glass-vanilla-navbar",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Frosted Glass vanilla navbar",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server --port=7777 --host=localhost --entry-file=/index.html"
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Adrian Carriger <hello@adriancarriger.com> (http://adriancarriger.com)",
+  "license": "MIT",
   "dependencies": {
-    "frosted-glass": "^0.0.6"
+    "frosted-glass": "next"
   },
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "parcel-bundler": "^1.6.1"
   }
 }
