@@ -12,16 +12,16 @@
 ## Demos
 
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/vanilla/navbar">
-  <img alt="Vanilla" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-readme-demos/images/vanilla.png" width="70px">
+  <img alt="Vanilla" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/vanilla.png" width="70px">
 </a>
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/react/navbar">
-  <img alt="React" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-readme-demos/images/react.png" width="100px">
+  <img alt="React" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/react.png" width="100px">
 </a>
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/vue/navbar" style="margin-right: 10px">
-  <img alt="Vue" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-readme-demos/images/vue.jpg" width="75px">
+  <img alt="Vue" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/vue.jpg" width="75px">
 </a>
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/angular/navbar">
-  <img alt="Angular" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-readme-demos/images/angular.png" width="70px">
+  <img alt="Angular" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/angular.png" width="70px">
 </a>
 
 [![Navbar blur example gif](https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/navbar-blur.gif)](https://plnkr.co/edit/CgAaJS?p=preview)
