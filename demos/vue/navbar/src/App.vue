@@ -1,30 +1,57 @@
 <template>
-  <frosted-glass-container stretch="true">
-    <div id="app">
-      <frosted-glass class="nav-container">
-        <i class="material-icons left-menu"></i>
-        <ul class="nav-content">
-          <li>Home</li>
-          <li>Our Story</li>
-          <li>Services</li>
-          <li>Work</li>
-          <li>Journal</li>
-          <li>Contact</li>
+  <div>
+    <div class="super-header"></div>
+    <frosted-glass-container stretch="true">
+      <div id="app">
+        <frosted-glass overlay-color="#ffffff52" class="nav-container">
+          <i class="material-icons left-menu"></i>
+          <ul class="nav-content">
+            <li>Home</li>
+            <li>Our Story</li>
+            <li>Services</li>
+            <li>Work</li>
+            <li>Journal</li>
+            <li>Contact</li>
+          </ul>
           <button class="nav-cta">Call Us</button>
-        </ul>
-      </frosted-glass>
-      <div class="hero-container">
-        <frosted-glass overlay-color="#ffffff52" class="hero-value-add">
-          <h1><span class="hero-focus">Frosted Glass</span></h1>
-          <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
-          <button class="hero-cta">Order now</button>
         </frosted-glass>
+        <div class="hero-container">
+          <frosted-glass overlay-color="#ffffff52" blur-amount="1.6rem" class="hero-value-add">
+            <h1>Frosted Glass</h1>
+            <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
+            <button class="hero-cta">Order now</button>
+          </frosted-glass>
+        </div>
+        <div class="extra-container">
+          <div class="extra-content">
+            <h2>Artisan craft beer</h2>
+            <p>Odd Future raw denim tattooed Godard Truffaut organic tote bag Carles messenger bag flexitarian twee PBR&B blog</p>
+            <button class="nav-cta">schedule a demo</button>
+          </div>
+        </div>
+        <div class="extra-container-1"></div>
+        <div class="extra-container extra-container-2">
+          <div class="extra-content">
+              <h2>Kale flannel blog</h2>
+              <p> pack readymade Tonx fixie lomo plaid meggings brunch next level authentic organic paleo</p>
+              <ul class="icon-list">
+                <li><i class="material-icons">ic_flight_takeoff</i></li>
+                <li><i class="material-icons">ic_language</i></li>
+                <li><i class="material-icons">ic_card_travel</i></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer">
+          <ul>
+            <li>artisan</li>
+            <li>travel</li>
+            <li>curated</li>
+          </ul>
+        </div>
       </div>
-      <div class="journal-container"></div>
-      <div class="extra-container-1"></div>
-      <div class="extra-container-2"></div>
-    </div>
-  </frosted-glass-container>
+    </frosted-glass-container>
+    <div class="sub-footer"></div>
+  </div>
 </template>
 
 <script>
@@ -38,33 +65,70 @@ export default {
     box-sizing: border-box;
   }
 
-  html,
-  body {
+  html, body {
     height: 100%;
+  }
+
+  @media all and (min-width: 1301px) and (max-width: 1500px) {
+    html { font-size: 1.125rem; }
+  }
+
+  @media all and (min-width: 1501px) and (max-width: 2500px) {
+    html { font-size: 1.25rem; }
+  }
+
+  @media all and (min-width: 2501px) and (max-width: 4000px) {
+    html { font-size: 1.8rem; }
+  }
+
+  @media all and (min-width: 4001px) and (max-width: 5000px) {
+    html { font-size: 2.5rem; }
+  }
+
+  @media all and (min-width: 5001px) {
+    html { font-size: 3.5rem; }
   }
 
   body {
     margin: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 16px;
   }
 
   h1 {
-    font-size: 54px;
+    font-size: 3rem;
   }
-  h1,
+
   h2 {
-    font-weight: normal;
+    font-size: 2.25rem;
+  }
+
+  h1, h2 {
+    font-weight: 100;
+  }
+
+  @media all and (max-width: 56.25rem) {
+    h1 {
+      font-size: 2.4rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media all and (max-width: 31.25rem) {
+    h1 {
+      font-size: 2.0rem;
+    }
   }
 
   ul {
     list-style-type: none;
-    padding: 34px;
+    padding: 2.125rem;
   }
 
   li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 0.8rem;
     cursor: pointer;
   }
 
@@ -95,7 +159,7 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    height: 90px;
+    height: 5.625rem;
     z-index: 1;
   }
 
@@ -108,27 +172,36 @@ export default {
     left: 5%;
     top: 0;
     bottom: 0;
-    height: 25px;
+    height: 1.5625rem;
     margin: auto;
+    cursor: pointer;
+    font-size: 1.5rem;
   }
 
   .nav-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 80%;
+    margin: 0 auto 0 8.7rem;
+    max-width: 62.5rem;
+    min-height: 5.375rem;
     position: relative;
+    width: 80%;
+  }
+
+  @media all and (max-width: 50.625rem) {
+    .nav-content li {
+      display: none;
+    }
   }
 
   .nav-cta {
-    border: solid 2px rgb(0, 153, 255);
-    border-radius: 3px;
-    padding: 10px 30px;
+    border: solid 0.125rem rgb(0, 153, 255);
+    border-radius: 0.1875rem;
+    padding: 0 1.875rem;
     background: transparent;
     color: rgb(0, 153, 255);
-    font-size: 16px;
+    font-size: 1rem;
     position: absolute;
-    right: 0;
-    height: 44px;
+    right: 4%;
+    height: 2.75rem;
     margin: auto;
     top: 0;
     bottom: 0;
@@ -137,70 +210,199 @@ export default {
   /* Hero */
   .hero-container {
     background-color: rgb(141, 141, 141);
-    background-image: url("http://your-photography.com/files/2016/02/HH0A5456.jpg");
+    background-image: url('http://your-photography.com/files/2016/02/HH0A5456.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     color: black;
-    height: 734px;
-    padding-top: 20%;
+    height: 0;
+    padding-bottom: 55%;
     text-align: left;
+    overflow: hidden;
   }
 
   .hero-value-add {
     display: block;
-    margin: 0 auto;
-    max-width: 800px;
-    width: 80%;
-    padding: 50px;
+    margin: 0 20% 0 auto;
+    width: 25rem;
+    padding: 3.125rem;
+    margin-top: 18%;
   }
 
   .hero-value-add h1 {
     margin: 0;
-    text-transform: uppercase;
-    padding-bottom: 10px;
+    color: black;
   }
 
   .hero-value-add h1 ::selection {
     background: white;
   }
 
-  .hero-value-add .hero-focus {
-    text-transform: initial;
-    color: black;
-    font-weight: 100;
-    display: block;
+  .hero-details {
+    padding: 1.25rem 0;
   }
 
-  .hero-details span {
-    background: rgb(0, 153, 255);
-    color: white;
-    border-radius: 1px;
-    padding: 1px 4px;
+  @media all and (max-width: 56.25rem) {
+    .hero-container {
+      height: 40rem;
+      padding-top: 2rem;
+      background-position: 30% 0px;
+      background-size: auto 120%;
+    }
+    .hero-value-add {
+      margin-right: 12%;
+      margin-top: 9rem;
+      width: 18rem;
+      padding: 1.5rem;
+      padding-top: 2rem;
+    }
+  }
+
+  @media all and (max-width: 31.25rem) {
+    .nav-container {
+      height: 4.5rem;
+    }
+    .hero-container {
+      padding-bottom: 110%;
+      background-position: 30% 0px;
+      background-size: auto 116%;
+    }
+    .hero-value-add {
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 21%;
+      width: 80%;
+      padding-top: 5%;
+    }
   }
 
   .hero-cta {
     color: white;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
     border: none;
     background-color: rgb(0, 153, 255);
-    font-size: 20px;
-    padding: 10px 30px;
-    height: 50px;
-    margin: 20px 0;
+    font-size: 1.25rem;
+    padding: 0.625rem 1.875rem;
+    height: 3.125rem;
   }
 
-  .journal-container {
-    height: 450px;
-    background: rgb(212, 212, 212);
+  /* Extras */
+  .extra-container {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 153, 255);
+    height: 21.875rem;
+  }
+
+  .extra-content {
+    padding: 2.5rem 13.2rem;
+    max-width: 62.5rem;
+    margin: 0 auto;
+  }
+
+  .extra-container h2 {
+    text-align: center;
+  }
+
+  .extra-container p {
+    padding: 0 0 1.875rem 0;
+    line-height: 1.7;
+  }
+
+  .extra-container button {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: static;
+  }
+
+  .icon-list {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 10%;
+    font-size: 2.875rem;
+  }
+
+  .icon-list li {
+    overflow: hidden;
+    width: 1em;
+  }
+
+  .icon-list i {
+    margin-left: -3em;
+    font-size: 1em;
+  }
+
+  @media all and (max-width: 46.875rem) {
+    .extra-content {
+      padding: 2.5rem 15%;
+    }
+  }
+
+  @media all and (max-width: 31.25rem) {
+    .extra-content {
+      padding: 2.5rem 10%;
+    }
+    .icon-list {
+      padding-right: 7%;
+      padding-left: 7%;
+      font-size: 2.4rem;
+    }
   }
 
   .extra-container-1 {
-    height: 450px;
-    background: rgb(182, 182, 182);
+    height: 0;
+    padding-bottom: 66.6%;
+    background: rgb(212, 212, 212);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('https://thumbs-prod.si-cdn.com/wWEuhLHo8_IGh2Tzs1GJNTBIOXo=/fit-in/1072x0/filters:focal(942x492:943x493)/https://public-media.smithsonianmag.com/filer/45/61/4561063e-a2e2-4c24-a721-7a14bf18de0a/120529_burkard_136257.jpg');
+  }
+
+  @media (min-width: 48.125rem) {
+    .extra-container-1 {
+      height: 0;
+      padding-bottom: 40%;
+    }
   }
 
   .extra-container-2 {
-    height: 450px;
-    background: rgb(212, 212, 212);
+    height: 25rem;
+    padding-top: 0.625rem;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 153, 255);
+  }
+
+  .super-header {
+    height: 100vh;
+    background: rgb(206, 211, 212);;
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    right: 0;
+  }
+
+  .footer {
+    height: 28.125rem;
+    background: rgb(82, 82, 82);
+  }
+
+  .footer ul {
+    color: white;
+    padding: 6.25rem 0;
+  }
+
+  .footer li {
+    text-align: center;
+    display: block;
+    padding: 0.625rem;
+    margin: 0.625rem;
+  }
+
+  .sub-footer {
+    height: 100vh;
+    background: rgb(82, 82, 82);
+    position: fixed;
+    bottom: -100vh;
+    left: 0;
+    right: 0;
   }
 </style>

@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-	<title>Frosted Glass</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="style.css">
-	<script src='https://unpkg.com/frosted-glass/dist/frostedglass.js'></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Frosted Glass</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="style.css">
+  <script src='https://unpkg.com/frosted-glass/dist/frostedglass.js'></script>
 </head>
 <body>
 
-	<frosted-glass-container stretch="true">
-		<div id="app">
-			<frosted-glass overlay-color="#ffffff52" class="nav-container">
-				<i class="material-icons left-menu"></i>
-				<ul class="nav-content">
-					<li>Home</li>
-					<li>Our Story</li>
-					<li>Services</li>
-					<li>Work</li>
-					<li>Journal</li>
-					<li>Contact</li>
-					<button class="nav-cta">Call Us</button>
-				</ul>
-			</frosted-glass>
-			<div class="hero-container">
-				<frosted-glass overlay-color="#ffffff52" blur-amount="25px" class="hero-value-add">
-					<h1><span class="hero-focus">Frosted Glass</span></h1>
-					<div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
-					<button class="hero-cta">Order now</button>
-				</frosted-glass>
-			</div>
-			<div class="journal-container"></div>
-			<div class="extra-container-1"></div>
-			<div class="extra-container-2"></div>
-		</div>
-	</frosted-glass-container>
+  <div class="super-header"></div>
+  <frosted-glass-container stretch="true">
+    <div id="app">
+      <frosted-glass overlay-color="#ffffff52" class="nav-container">
+        <i class="material-icons left-menu"></i>
+        <ul class="nav-content">
+          <li>Home</li>
+          <li>Our Story</li>
+          <li>Services</li>
+          <li>Work</li>
+          <li>Journal</li>
+          <li>Contact</li>
+        </ul>
+        <button class="nav-cta">Call Us</button>
+      </frosted-glass>
+      <div class="hero-container">
+        <frosted-glass overlay-color="#ffffff52" blur-amount="1.6rem" class="hero-value-add">
+          <h1>Frosted Glass</h1>
+          <div class="hero-details">next level street art gastropub flannel keytar sartorial sustainable ennui Brooklyn kitsch artisan typewriter</div>
+          <button class="hero-cta">Order now</button>
+        </frosted-glass>
+      </div>
+      <div class="extra-container">
+        <div class="extra-content">
+          <h2>Artisan craft beer</h2>
+          <p>Odd Future raw denim tattooed Godard Truffaut organic tote bag Carles messenger bag flexitarian twee PBR&B blog</p>
+          <button class="nav-cta">schedule a demo</button>
+        </div>
+      </div>
+      <div class="extra-container-1"></div>
+      <div class="extra-container extra-container-2">
+        <div class="extra-content">
+            <h2>Kale flannel blog</h2>
+            <p> pack readymade Tonx fixie lomo plaid meggings brunch next level authentic organic paleo</p>
+            <ul class="icon-list">
+              <li><i class="material-icons">ic_flight_takeoff</i></li>
+              <li><i class="material-icons">ic_language</i></li>
+              <li><i class="material-icons">ic_card_travel</i></li>
+            </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <ul>
+          <li>artisan</li>
+          <li>travel</li>
+          <li>curated</li>
+        </ul>
+      </div>
+    </div>
+  </frosted-glass-container>
+  <div class="sub-footer"></div>
 
 </body>
 </html>
