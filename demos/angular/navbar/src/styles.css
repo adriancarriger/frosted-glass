@@ -2,9 +2,28 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
+}
+
+@media all and (min-width: 1301px) and (max-width: 1500px) {
+  html { font-size: 1.125rem; }
+}
+
+@media all and (min-width: 1501px) and (max-width: 2500px) {
+  html { font-size: 1.25rem; }
+}
+
+@media all and (min-width: 2501px) and (max-width: 4000px) {
+  html { font-size: 1.8rem; }
+}
+
+@media all and (min-width: 4001px) and (max-width: 5000px) {
+  html { font-size: 2.5rem; }
+}
+
+@media all and (min-width: 5001px) {
+  html { font-size: 3.5rem; }
 }
 
 body {
@@ -13,28 +32,40 @@ body {
 }
 
 h1 {
-  font-size: 54px;
+  font-size: 3rem;
 }
 
-h1,
 h2 {
-  font-weight: normal;
+  font-size: 2.25rem;
 }
 
-@media all and (max-width: 810px) {
+h1, h2 {
+  font-weight: 100;
+}
+
+@media all and (max-width: 56.25rem) {
   h1 {
-    font-size: 42px;
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (max-width: 31.25rem) {
+  h1 {
+    font-size: 2.0rem;
   }
 }
 
 ul {
   list-style-type: none;
-  padding: 34px;
+  padding: 2.125rem;
 }
 
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 0.8rem;
   cursor: pointer;
 }
 
