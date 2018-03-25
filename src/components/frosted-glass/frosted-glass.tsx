@@ -10,7 +10,7 @@ export class FrostedGlass {
   @Element() el: HTMLElement;
   @Prop() uuid: string;
   @Prop() overlayColor: string;
-  @Prop() blurAmount = '15px';
+  @Prop() blurAmount = '1rem';
   @State() blurOffsetLeft = 0;
   @State() blurOffsetTop = 0;
   @State() scrollOffset = 0;
