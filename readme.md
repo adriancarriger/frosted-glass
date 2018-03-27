@@ -24,7 +24,13 @@
   <img alt="Angular" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/angular.png" width="70px">
 </a>
 
-[![Navbar blur example gif](https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/navbar-blur.gif)](https://plnkr.co/edit/CgAaJS?p=preview)
+<a href="https://beta.cleantothecore.com/">
+  <img alt="recipe page top" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-images/images/test-1.png" width="200px">
+  <img alt="recipe page steps" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-images/images/test-2.png" width="200px">
+  <img alt="home page" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-images/images/test-3.png" width="200px">
+</a>
+
+[![Navbar blur example gif](https://raw.githubusercontent.com/adriancarriger/frosted-glass/ac_update-images/images/navbar-blur.gif)](https://plnkr.co/edit/CgAaJS?p=preview)
 
 ## Install
 
