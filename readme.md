@@ -11,6 +11,7 @@
 
 ## Demos
 
+<div>
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/vanilla/navbar">
   <img alt="Vanilla" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/vanilla.png" width="70px">
 </a>
@@ -23,6 +24,7 @@
 <a href="https://codesandbox.io/s/github/adriancarriger/frosted-glass/tree/master/demos/angular/navbar">
   <img alt="Angular" src="https://raw.githubusercontent.com/adriancarriger/frosted-glass/master/images/angular.png" width="70px">
 </a>
+</div>
 
 
 <a href="https://beta.cleantothecore.com/" style="display:block; padding: 20px 0; text-decoration:none">
