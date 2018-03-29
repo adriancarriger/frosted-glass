@@ -99,6 +99,64 @@
       overflow: auto;
     }
 
+    /* Drawer */
+    .drawer-container {
+      bottom: 0;
+      height: 90px;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 250px;
+      z-index: 3;
+      
+      height: 100%;
+      background-color: white;
+      transition: transform 0.4s ease-in-out;
+      outline: none;
+    }
+
+    .drawer-content {
+      list-style: none;
+      padding: 0;
+    }
+
+    .drawer-content li {
+      padding: 15px 25px;
+      width: 100%;
+      margin: 0;
+    }
+
+    .drawer-content li:hover {
+      background-color: #7372723b;
+    }
+
+    .drawer-container.hide {
+      transform: translateX(-250px);
+    }
+
+    .drawer-container .blur-content > * {
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .drawer-container.hide .blur-content > * {
+      transform: translateX(250px) !important;
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background: #31313199;
+      z-index: 2;
+    }
+
+    .drawer-overlay.hide {
+      display: none;
+    }
+
     /* Nav */
     .nav-container {
       position: fixed;
@@ -351,6 +409,16 @@
       left: 0;
       right: 0;
     }
+
+    @media all and (max-width: 810px) {
+      .hero-container {
+        padding-top: 23%;
+        padding-bottom: 43%;
+      }
+      .hero-value-add {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -358,8 +426,16 @@
   <div class="super-header"></div>
   <frosted-glass-container stretch="true">
     <div id="app">
+      <frosted-glass tabindex="-1" overlay-color="#ffffff52" class="drawer-container hide">
+        <ul class="drawer-content">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+      </frosted-glass>
+      <div class="drawer-overlay hide"></div>
       <frosted-glass overlay-color="#ffffff52" class="nav-container">
-        <i class="material-icons left-menu"></i>
+        <i onclick="openDrawer()" class="material-icons left-menu"></i>
         <ul class="nav-content">
           <li>Home</li>
           <li>Our Story</li>
@@ -407,5 +483,19 @@
   </frosted-glass-container>
   <div class="sub-footer"></div>
 
+  <script>
+    const drawer = document.querySelector('.drawer-container');
+    const drawerOverlay = document.querySelector('.drawer-overlay');
+
+    function openDrawer() {
+      drawer.classList.remove('hide');
+      drawerOverlay.classList.remove('hide');
+      drawer.focus();
+    }
+    drawer.addEventListener('blur', () => {
+      drawer.classList.add('hide');
+      drawerOverlay.classList.add('hide');
+    }, true);
+  </script>
 </body>
 </html>
