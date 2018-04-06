@@ -63,13 +63,13 @@ npm install frosted-glass --save
 
 ### `frosted-glass-container`
 
-- `stretch` - ensures that edges get blurred by [stretching the container dimentions by 5%](https://github.com/adriancarriger/frosted-glass/blob/master/src/components/frosted-glass-container/frosted-glass-container.scss#L5-L7);
+- `stretch` - ensures that edges get blurred by [stretching the container dimentions by 5%](https://github.com/adriancarriger/frosted-glass/blob/master/src/components/frosted-glass-container/frosted-glass-container.scss#L5-L7)
 
 #### Example
 
 ```html
 <frosted-glass-container stretch="true">
-  <frosted-glass blur-amount="5px" overlay-color="ffffff52"></frosted-glass>
+  <frosted-glass blur-amount="5px" overlay-color="#ffffff52"></frosted-glass>
 </frosted-glass-container>
 ```
 
