@@ -24,7 +24,7 @@
     "semantic-commitlint": "semantic-commitlint"
   },
   "dependencies": {
-    "@stencil/core": "0.5.2"
+    "@stencil/core": "0.7.19"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
