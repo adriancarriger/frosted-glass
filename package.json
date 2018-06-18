@@ -29,7 +29,7 @@
   "devDependencies": {
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
-    "@types/jest": "^22.2.0",
+    "@types/jest": "^23.1.1",
     "condition-circle": "2.0.1",
     "husky": "^0.15.0-rc.3",
     "jest": "^21.2.1",
