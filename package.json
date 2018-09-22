@@ -31,7 +31,7 @@
     "@stencil/utils": "latest",
     "@types/jest": "^22.2.0",
     "condition-circle": "2.0.1",
-    "husky": "^0.15.0-rc.3",
+    "husky": "^1.0.0-rc.14",
     "jest": "^21.2.1",
     "markdownlint-cli": "^0.8.1",
     "plunk": "^0.5.1",
